@@ -11,6 +11,7 @@ class DocumentsController < ApplicationController
 
 	end
 
+
 	def create
 		@document = Document.new(document_params)
 		if @document.save
@@ -19,11 +20,21 @@ class DocumentsController < ApplicationController
 			render 'new'
 		end
 	end
+	def edit
+		
+	end
 
 	def update
+		if @document.update(document_params)
+			redirect_to @document
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
+		@document.destroy
+		redirect_to documents_path
 	end
 
 	private

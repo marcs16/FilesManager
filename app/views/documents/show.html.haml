@@ -1,3 +1,5 @@
 %h1= @document.title
 %h1= @document.content
-%h1= link_to 'Documents index', documents_path
+%h1= link_to 'editar documento', edit_document_path(@document)
+%h1= link_to 'Eliminar documento', document_path(@document), method: :delete, data: {confirm: "Estas de acuerdo en eliminar este documento: #{@document.title}"}
+%h1= link_to 'Todos los documentos', documents_path
