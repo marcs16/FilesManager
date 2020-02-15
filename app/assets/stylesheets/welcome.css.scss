@@ -2,7 +2,6 @@
 // STYLING FOR WELCOME PAGE
 
 #banner {
-	background-image: url(image_path("welcome_banner_image.jpg"));
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top center;
@@ -23,6 +22,7 @@
 			font-size: 1.5rem;
 			margin: 0 0 2.5rem 0;
 			color: rgba(82,158,204, 0.6);
+			
 		}
 	}
 }
@@ -44,7 +44,7 @@
 }
 
 #callouts {
-	background-image: image-url("callout_background.jpg");
+	background-image: url(asset_path('callout_background.jpg'));
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top center;

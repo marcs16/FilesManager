@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title Gestor de archivos | !El trabajo de tu vida¡
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header
+      .header_inner
+        =link_to "Gestor de archivos", root_path, id: "logo"
+        %nav
+          - if user_signed_in?
+            = link_to "Crear Documento", new_document_path
+            = link_to "Cerrar Sesión", destroy_user_session_path, method: :delete
+          -else
+            = link_to "Inciar Sesión", new_user_session_path
+    %p.notice= notice
+    %p.alert= alert
+    = yield
