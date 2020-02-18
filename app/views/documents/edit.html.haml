@@ -1,2 +1,4 @@
-%h1 editando documento: #{ @document.title}
-= render 'form'
+.wrapper_with_padding	
+	%h1 editando documento: #{ @document.title}
+	= render 'form'
+	= link_to "Cancelar", document_path
