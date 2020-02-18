@@ -1,6 +1,13 @@
-%h3= link_to 'create new document', new_document_path
-%h1 list of documents
--@documents.each do |document|
-	%h3= link_to document.title, document
-	%p= time_ago_in_words(document.created_at)
-	%p= truncate(document.content, length:50)
+.wrapper_with_padding
+	#documents.clearfix
+		-unless @documents.blank?
+			-@documents.each do |document|
+				%a{href: (url_for [document])}
+					.document
+						%p.title    document.title
+						%p.date= time_ago_in_words(document.created_at)
+						%p.content= truncate(document.content, length:50)
+		-else
+			%h2 !Crea un documento¡
+			%p !Crea documentos y organiza tu vida¡
+			%button= link_to "Crear documento nuevo", new_document_path
