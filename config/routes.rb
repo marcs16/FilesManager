@@ -7,5 +7,11 @@ Rails.application.routes.draw do
   authenticated :user do
   	root "documents#index", as: "authenticated_root"
   end
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+  }
   root 'welcome#index'
 end
